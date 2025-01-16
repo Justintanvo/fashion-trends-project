@@ -1,0 +1,12 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore model files and large datasets (optional)
+models/
+data/raw/
+data/processed/
