@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - echo "Installing dependencies..."
+      - pip install --upgrade pip
+      - pip install -r requirements.txt  # Ensure you have a requirements.txt in your repo
+
+  build:
+    commands:
+      - echo "Running data processing and forecasting script..."
+      - python fashion_trends_analysis.py  # Change this to your actual script name
+
+  post_build:
+    commands:
+      - echo "Uploading results to S3..."
+      - aws s3 cp output/ s3://fashion-trends-project/ --recursive
+      - echo "Build complete!"
